@@ -16,15 +16,15 @@ node{
         //sh "${mavenHome}/bin/mvn deploy"
     }
     stage('DockerBuildImage') {
-      sh 'docker build -t hanstechnetwork/spring-boot-mongo .'
+      //sh 'docker build -t hanstechnetwork/spring-boot-mongo .'
     }
    
     stage('DockerPushImage') {
-      withCredentials([string(credentialsId: 'DockerHubCredentials', variable: 'DockerHubCredentials')]) {
-    sh 'docker login -u motunfat2 -p ${DockerHubCredentials}'
+      withCredentials([string(credentialsId: 'dockerhub-credentials', variable: 'dockerhub-credentials')]) {
+ sh 'docker login -u motunfat2 -p ${dockerhub-credentials}'
 }
-
-    sh 'docker push hanstechnetwork/spring-boot-mongo' 
+ 
+    sh 'docker push motunfat2/spring-boot-mongo' 
     }
     
     stage('RemoveDockerImages') {
