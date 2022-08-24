@@ -21,7 +21,7 @@ node{
    
     stage('DockerPushImage') {
       withCredentials([string(credentialsId: 'DockerHubCredentials', variable: 'DockerHubCredentials')]) {
-    sh 'docker login -u hanstechnetwork -p ${DockerHubCredentials}'
+    sh 'docker login -u motunfat2 -p ${DockerHubCredentials}'
 }
 
     sh 'docker push hanstechnetwork/spring-boot-mongo' 
