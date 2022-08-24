@@ -1,7 +1,7 @@
 node{
      def mavenHome = tool name: 'maven3.6.3'
      stage('SCM CLONE') {
-	git 'https://github.com/hansleygit/spring-boot-docker'
+	git 'https://github.com/mamaboiz/spring-boot-docker'
    }
 
     stage('MavenBuild') {
@@ -16,7 +16,7 @@ node{
         //sh "${mavenHome}/bin/mvn deploy"
     }
     stage('DockerBuildImage') {
-      //sh 'docker build -t hanstechnetwork/spring-boot-mongo .'
+      //sh 'docker build -t rsquare/spring-boot-mongo .'
     }
    
     stage('DockerPushImage') {
